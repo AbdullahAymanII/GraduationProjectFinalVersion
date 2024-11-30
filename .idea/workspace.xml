@@ -4,34 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e479f7e7-34b6-471c-9f0d-59d258c85774" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/configuration/jwt/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/configuration/jwt/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/controller/authentication/SignInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/controller/authentication/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/controller/user/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/dto/authentication/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/dto/authentication/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/authenticaionException/InvalidCredentialsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/userException/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/CustomUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/constants/AccountSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/constants/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/repository/user/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/authService/AuthConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/authService/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/authService/AuthenticationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/userDetailsService/IdsUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/validatorCheck/EmailValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/validatorCheck/PasswordValidator.java" afterDir="false" />
+    <list default="true" id="e479f7e7-34b6-471c-9f0d-59d258c85774" name="Changes" comment="add the backend files and the login page">
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/BackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/configuration/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/configuration/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/configuration/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/configuration/jwt/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/controller/authentication/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/controller/authentication/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/controller/authentication/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/controller/authentication/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/dto/authentication/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/dto/authentication/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/dto/authentication/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/dto/authentication/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/authenticaionException/InvalidCredentialsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/exception/authenticaionException/InvalidCredentialsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/exception/userException/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/exception/userException/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/model/user/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/constants/AccountSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/model/user/constants/AccountSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/model/user/constants/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/model/user/constants/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/repository/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/authService/AuthConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/authService/AuthConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/authService/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/authService/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/authService/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/authService/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/userService/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/userService/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/userDetailsService/IdsUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/userService/userDetailsService/IdsUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/validatorCheck/EmailValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/userService/validatorCheck/EmailValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/java/backend/service/userService/validatorCheck/PasswordValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/backend/service/userService/validatorCheck/PasswordValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/java/backend/BackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/backend/BackendApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +48,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Dockerfile" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -80,6 +87,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.GraduationProject [clean,install...].executor": "Run",
+    "Maven.backend [clean,install,-DskipTests].executor": "Run",
+    "Maven.backend [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.CodyAccountHistoryMigration": "true",
     "RunOnceActivity.CodyAccountsIdsRefresh": "true",
     "RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount": "true",
@@ -89,32 +103,60 @@
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
+    "Spring Boot.BackendApplication (1).executor": "Run",
+    "Spring Boot.BackendApplication.executor": "Run",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "LoginPage",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/University - Final Project/GraduationProject/GraduationProject/frontend/frontend/src",
+    "last_opened_file_path": "D:/University - Final Project/GraduationProject/GraduationProject/frontend/src/pages/loginForm",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\intellij\\IntelliJ IDEA 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\loginForm" />
+      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\LandingPage" />
+      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\LandingPage\assets" />
       <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\frontend\src" />
       <recent name="D:\University - Final Project\GraduationProject\GraduationProject\backend\src\main\java\java\backend\model" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\backend\src\main\java\java\backend" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\backend\src\main\java\java\backend\service" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\backend\src\main\java\java\backend\service\user" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src" />
+      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\assets" />
+      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\frontend" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Debug Application">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean install -DskipTests" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BackendApplication (1)">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
+    </configuration>
+    <configuration name="BackendApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.BackendApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -124,6 +166,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BackendApplication (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -145,11 +192,26 @@
       <workItem from="1731777076936" duration="24000" />
       <workItem from="1731855756892" duration="1174000" />
       <workItem from="1731954170405" duration="2100000" />
-      <workItem from="1731956899916" duration="874000" />
+      <workItem from="1731956899916" duration="997000" />
+      <workItem from="1732799791709" duration="14835000" />
+      <workItem from="1732981435951" duration="14353000" />
     </task>
+    <task id="LOCAL-00001" summary="add the backend files and the login page">
+      <option name="closed" value="true" />
+      <created>1731957842066</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731957842066</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add the backend files and the login page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add the backend files and the login page" />
   </component>
 </project>
