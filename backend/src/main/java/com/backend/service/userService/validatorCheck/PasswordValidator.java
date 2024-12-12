@@ -53,5 +53,5 @@ public class PasswordValidator {
     private static boolean containsSpecialCharacter(String password) {
         return password.chars().anyMatch(ch -> "!@#$%^&*()_+{}[]|:;<>,.?/~`-=".indexOf(ch) >= 0);
     }
-}
 
+}
