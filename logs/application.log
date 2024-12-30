@@ -1,0 +1,55 @@
+2024-11-28T17:37:18.411+03:00  INFO 6376 --- [backend] [restartedMain] com.backend.BackendApplication           : Starting BackendApplication using Java 21.0.4 with PID 6376 (D:\University - Final Project\GraduationProject\GraduationProject\backend\target\classes started by pc in D:\University - Final Project\GraduationProject\GraduationProject)
+2024-11-28T17:37:18.413+03:00  INFO 6376 --- [backend] [restartedMain] com.backend.BackendApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:37:18.448+03:00  INFO 6376 --- [backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:37:18.458+03:00  INFO 6376 --- [backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:37:18.467+03:00  INFO 6376 --- [backend] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file 'D:\University - Final Project\GraduationProject\GraduationProject\docker-compose.yaml'
+2024-11-28T17:37:21.065+03:00  INFO 6376 --- [backend] [OutputReader-stdout] o.s.boot.docker.compose.core.DockerCli   : #0 building with "desktop-linux" instance using docker driver
+2024-11-28T17:37:21.065+03:00  INFO 6376 --- [backend] [OutputReader-stdout] o.s.boot.docker.compose.core.DockerCli   : 
+2024-11-28T17:37:21.065+03:00  INFO 6376 --- [backend] [OutputReader-stdout] o.s.boot.docker.compose.core.DockerCli   : #1 [frontend internal] load build definition from Dockerfile
+2024-11-28T17:37:21.065+03:00  INFO 6376 --- [backend] [OutputReader-stdout] o.s.boot.docker.compose.core.DockerCli   : #1 transferring dockerfile:
+2024-11-28T17:37:21.246+03:00  INFO 6376 --- [backend] [OutputReader-stdout] o.s.boot.docker.compose.core.DockerCli   : #1 transferring dockerfile: 2B 0.0s done
+2024-11-28T17:37:21.443+03:00  INFO 6376 --- [backend] [OutputReader-stdout] o.s.boot.docker.compose.core.DockerCli   : #1 DONE 0.5s
+2024-11-28T17:37:23.283+03:00  INFO 6376 --- [backend] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   : failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+2024-11-28T17:37:23.391+03:00 ERROR 6376 --- [backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file D:\University - Final Project\GraduationProject\GraduationProject\docker-compose.yaml --ansi never up --no-color --detach --wait' failed with exit code 17.
+
+Stdout:
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [frontend internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2B 0.0s done
+#1 DONE 0.5s
+
+
+Stderr:
+failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:97) ~[spring-boot-docker-compose-3.3.5.jar:3.3.5]
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:80) ~[spring-boot-docker-compose-3.3.5.jar:3.3.5]
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.up(DefaultDockerCompose.java:51) ~[spring-boot-docker-compose-3.3.5.jar:3.3.5]
+	at org.springframework.boot.docker.compose.lifecycle.StartCommand.applyTo(StartCommand.java:51) ~[spring-boot-docker-compose-3.3.5.jar:3.3.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:128) ~[spring-boot-docker-compose-3.3.5.jar:3.3.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53) ~[spring-boot-docker-compose-3.3.5.jar:3.3.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35) ~[spring-boot-docker-compose-3.3.5.jar:3.3.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:98) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$4(SpringApplicationRunListeners.java:72) ~[spring-boot-3.3.5.jar:3.3.5]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:72) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:433) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.backend.BackendApplication.main(BackendApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+

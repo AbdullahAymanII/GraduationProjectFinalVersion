@@ -1,65 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e479f7e7-34b6-471c-9f0d-59d258c85774" name="Changes" comment="add the backend files and the login page" />
+    <list default="true" id="b9de3e6e-77db-4200-98d8-e4c0ab528361" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/backend.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/frontend.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLModel/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/MLModel/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-        <option value="Dockerfile" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;AbdullahAymanII&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "AbdullahAymanII"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SalahRatrout/GraduationProject.git&quot;,
-    &quot;accountId&quot;: &quot;2354a59f-3be7-4927-a22e-f7a013b58c32&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SalahRatrout/GraduationProject.git",
+    "accountId": "2354a59f-3be7-4927-a22e-f7a013b58c32"
   }
-}</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2owKTsoaMmB4oiXRoE2NpejNbTy" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2qx1E1USbQadNHpHX5vpEq8PTvy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Maven.GraduationProject [clean,install...].executor": "Run",
-    "Maven.backend [clean,install,-DskipTests].executor": "Run",
-    "Maven.backend [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.CodyAccountHistoryMigration": "true",
     "RunOnceActivity.CodyAccountsIdsRefresh": "true",
     "RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount": "true",
@@ -69,75 +56,18 @@
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
-    "Spring Boot.BackendApplication (1).executor": "Run",
-    "Spring Boot.BackendApplication.executor": "Run",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "LoginPage",
-    "jdk.selected.JAVA_MODULE": "21",
+    "git-widget-placeholder": "Test",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/AtyponTraining/dockerTesting/editor",
+    "last_opened_file_path": "D:/University - Final Project/GraduationProject/GraduationProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\intellij\\IntelliJ IDEA 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\loginForm" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\LandingPage" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\LandingPage\assets" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\frontend\src" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\backend\src\main\java\java\backend\model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\src\pages\assets" />
-      <recent name="D:\University - Final Project\GraduationProject\GraduationProject\frontend\frontend" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="mvn clean" />
-      <command value="mvn clean install -DskipTests" />
-    </option>
-  </component>
-  <component name="RunManager" selected="Spring Boot.BackendApplication (1)">
-    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
-      <method v="2" />
-    </configuration>
-    <configuration name="BackendApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.BackendApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.backend.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="java.backend.BackendApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.BackendApplication (1)" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -149,54 +79,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e479f7e7-34b6-471c-9f0d-59d258c85774" name="Changes" comment="" />
-      <created>1731775210679</created>
+      <changelist id="b9de3e6e-77db-4200-98d8-e4c0ab528361" name="Changes" comment="" />
+      <created>1735589296860</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1731775210679</updated>
-      <workItem from="1731775211578" duration="970000" />
-      <workItem from="1731777076936" duration="24000" />
-      <workItem from="1731855756892" duration="1174000" />
-      <workItem from="1731954170405" duration="2100000" />
-      <workItem from="1731956899916" duration="997000" />
-      <workItem from="1732799791709" duration="14835000" />
-      <workItem from="1732981435951" duration="17910000" />
-      <workItem from="1733086165868" duration="2131000" />
-      <workItem from="1733992942698" duration="3433000" />
-      <workItem from="1733997086637" duration="11034000" />
+      <updated>1735589296860</updated>
+      <workItem from="1735589297929" duration="326000" />
     </task>
-    <task id="LOCAL-00001" summary="add the backend files and the login page">
-      <option name="closed" value="true" />
-      <created>1731957842066</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1731957842066</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add the backend files and the login page">
-      <option name="closed" value="true" />
-      <created>1733005645937</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1733005645937</updated>
-    </task>
-    <task id="LOCAL-00003" summary="add the backend files and the login page">
-      <option name="closed" value="true" />
-      <created>1734037596050</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1734037596050</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="add the backend files and the login page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add the backend files and the login page" />
   </component>
 </project>

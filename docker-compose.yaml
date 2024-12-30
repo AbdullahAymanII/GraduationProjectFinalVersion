@@ -31,6 +31,18 @@ services:
     volumes:
       - ./frontend/src:/app/src                 # Mount frontend code for live reload
 
+  ml_model:
+    build:
+      context: './MLModel'
+      dockerfile: Dockerfile
+    container_name: MLModel_GP
+    ports:
+      - "5000:5000"
+    networks:
+      - backend
+    volumes:
+      - ./MLModel:/app                # Mount ML model code
+
   mysql:
     image: mysql:8.0
     container_name: mysql_GP
@@ -45,39 +57,6 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - backend
-
-#  mongo:
-#    image: mongo
-#    container_name: collaborative-mongo
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: devroot
-#      MONGO_INITDB_ROOT_PASSWORD: devroot
-#      MONGO_INITDB_DATABASE: mongo_db
-#    ports:
-#      - "27017:27017"
-#    volumes:
-#      - ./mongo_data:/data/mongo_db
-#      - ./mongo_init:/docker-entrypoint-initdb.d
-#    networks:
-#      - backend
-
-#  mongo-express:
-#    image: mongo-express
-#    environment:
-#      ME_CONFIG_MONGODB_SERVER: collaborative-mongo
-#      ME_CONFIG_MONGODB_PORT: 27017
-#      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
-#      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
-#      ME_CONFIG_MONGODB_AUTH_USERNAME: devroot
-#      ME_CONFIG_MONGODB_AUTH_PASSWORD: devroot
-#      ME_CONFIG_BASICAUTH_USERNAME: dev
-#      ME_CONFIG_BASICAUTH_PASSWORD: dev
-#    depends_on:
-#      - mongo
-#    ports:
-#      - "8888:8081"
-#    networks:
-#      - backend
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -100,6 +79,4 @@ networks:
 
 volumes:
   mysql_data:
-    driver: local
-  mongo_data:
     driver: local
