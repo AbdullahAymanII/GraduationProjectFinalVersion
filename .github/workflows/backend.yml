@@ -74,7 +74,7 @@ jobs:
     steps:
       - name: Deploy to AWS EC2
         run: |
-          ssh -o StrictHostKeyChecking=no -i ${{ secrets.AWS_EC2_KEY }} ubuntu@${{ secrets.AWS_EC2_IP }} 'docker pull ${{ secrets.DOCKER_USERNAME }}/backend:latest && docker-compose up -d'
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.AWS_EC2_KEY }} ubuntu@${{ secrets.AWS_EC2_IP }} 'docker pull ${{ secrets.DOCKER_USERNAME }}/backend1:latest && docker-compose up -d'
       - name: SSH into Backend EC2
         uses: appleboy/ssh-action@master
         with:

@@ -6,7 +6,6 @@
 /frontend/.gitkeep
 /frontend/*.log
 /frontend/*.tmp
-/frontend/*~
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
