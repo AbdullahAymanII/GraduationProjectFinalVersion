@@ -21,6 +21,7 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
         this.jwtUtil = jwtUtil;
     }
 
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws IOException, ServletException {
