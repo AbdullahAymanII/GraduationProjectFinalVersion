@@ -1,47 +1,37 @@
+version: "3.8"
+
 services:
-  app:
-    build:
-      context: './backend'
-      dockerfile: Dockerfile
+  backend:
+    image: abdayman/backendids:latest
     container_name: backend_GP
     ports:
       - "8080:8080"
     depends_on:
       - mysql
-#      - mongo
     networks:
       - backend
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
     volumes:
-      - ./backend/src:/backend/src        # Mount source code for live reload
-      - ./backend/target:/backend/target  # Mount target directory for output
-      - ~/.m2:/root/.m2                 # Cache Maven dependencies
-      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket for Docker-in-Docker access
+      - /var/run/docker.sock:/var/run/docker.sock  # For Docker-in-Docker access
 
   frontend:
-    build:
-      context: './front1'
-      dockerfile: Dockerfile
+    image: abdayman/frontendids:latest
     container_name: frontend_GP
     ports:
       - "3000:3000"
     depends_on:
-      - app
+      - backend
     networks:
       - backend
-    volumes:
-      - ./front/src:/app/src                 # Mount frontend code for live reload
 
   ml_model:
-    build:
-      context: './MLModel'
-      dockerfile: Dockerfile
+    image: abdayman/mlmodel:latest
     container_name: MLModel_GP
     ports:
       - "5000:5000"
     networks:
       - backend
-    volumes:
-      - ./MLModel:/app                # Mount ML model code
 
   mysql:
     image: mysql:8.0
@@ -50,7 +40,7 @@ services:
     environment:
       MYSQL_DATABASE: mysql_GP
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_ROOT_USER: root
+      MYSQL_USER: root
     ports:
       - "3306:3306"
     volumes:
@@ -63,7 +53,6 @@ services:
     container_name: phpmyadmin_GP
     environment:
       PMA_HOST: mysql_GP
-      PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: root
     ports:
