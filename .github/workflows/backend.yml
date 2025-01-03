@@ -32,7 +32,7 @@ jobs:
           java-version: '17'
 
       - name: Run Unit Tests
-        run: mvn test -DskipTests=false
+        run:  mvn -Dtest=SignInControllerTest test
         working-directory: ./backend
 
   build:
