@@ -19,7 +19,7 @@ services:
 
   frontend:
     build:
-      context: './frontend'
+      context: './front'
       dockerfile: Dockerfile
     container_name: frontend_GP
     ports:
@@ -29,7 +29,7 @@ services:
     networks:
       - backend
     volumes:
-      - ./frontend/src:/app/src                 # Mount frontend code for live reload
+      - ./front/src:/app/src                 # Mount frontend code for live reload
 
   ml_model:
     build:
