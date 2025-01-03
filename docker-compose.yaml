@@ -29,7 +29,7 @@ services:
     networks:
       - backend
     volumes:
-      - ./front/src:/app/src                 # Mount frontend code for live reload
+      - ./front1/src:/app/src                 # Mount frontend code for live reload
 
   ml_model:
     build:
