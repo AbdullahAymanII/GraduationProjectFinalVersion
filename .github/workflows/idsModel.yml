@@ -3,7 +3,7 @@ name: MLModel CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-push-deploy:
