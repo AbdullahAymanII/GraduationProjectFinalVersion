@@ -5,3 +5,4 @@ xgboost
 flask-cors
 scikit-learn
 imbalanced-learn
+catboost
