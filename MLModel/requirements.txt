@@ -3,3 +3,4 @@ joblib
 pandas
 xgboost
 flask-cors
+scikit-learn
