@@ -1,5 +1,5 @@
 services:
-  app:
+  backend:
     build:
       context: './backend'
       dockerfile: Dockerfile
@@ -25,7 +25,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - app
+      - backend
     networks:
       - backend
     volumes:
