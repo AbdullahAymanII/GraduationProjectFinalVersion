@@ -84,10 +84,12 @@ def predict():
     if CIC_Binary is None or CIC_Multi is None:
         return jsonify({"error": "Models not loaded"}), 500
 
+    print("===========================file = request.files['file']========================")
     file = request.files['file']
-
+    print("===========================after]========================")
     try:
         # Load the uploaded CSV
+        print("================================================================")
         data = pd.read_csv(file)
         print("================================================================")
         print(data.shape)
@@ -98,11 +100,13 @@ def predict():
 
         # Binary prediction stage
         binary_dmatrix = xgb.DMatrix(binary)
+        print("=============binary_dmatrix = xgb.DMatrix(binary)==========================================")
         binary_predictions = CIC_Binary.predict(binary_dmatrix)
 
         # Check if any attacks are detected
         if any(binary_predictions):
             return jsonify({"message": "No attacks occurred"})
+        print("============any(binary_predictions):==================================")
 
         # Multi-class prediction stage
         attack_indices = [i for i, pred in enumerate(binary_predictions) if pred == 0]
