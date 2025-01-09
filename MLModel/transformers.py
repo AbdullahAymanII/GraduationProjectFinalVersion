@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from imblearn.under_sampling import RandomUnderSampler
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.base import BaseEstimator, TransformerMixin
+from Stages import *
 
 class DropIrrelevant(BaseEstimator, TransformerMixin):
     def __init__(self, labels=None, negLabels="Flow Duration"):
