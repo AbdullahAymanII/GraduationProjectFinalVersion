@@ -342,6 +342,7 @@ const DashboardPage = () => {
             }
 
             const result = await response.json();
+            console.log(result);
             setPredictionResult(result);
         } catch (error) {
             alert(`An error occurred: ${error.message}`);

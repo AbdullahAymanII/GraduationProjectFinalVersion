@@ -72,9 +72,10 @@ CORS(app)
 CIC_Binary = joblib.load("models/binary.pkl")
 CIC_Multi = joblib.load("models/multi.pkl")
 pipeline = joblib.load("models/pipeline.pkl")
+print("================================================================")
 print(type(pipeline))
 print(dir(pipeline))
-
+print("================================================================")
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
@@ -88,8 +89,10 @@ def predict():
     try:
         # Load the uploaded CSV
         data = pd.read_csv(file)
+        print("================================================================")
+        print(data.shape)
         binary, multi= pipeline.fit_test(data)
-
+        print("================================================================")
         print(binary.shape)
         print(multi.shape)
 
