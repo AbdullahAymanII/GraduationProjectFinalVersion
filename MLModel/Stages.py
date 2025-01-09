@@ -1,3 +1,6 @@
+from transformers import *
+from sklearn.pipeline import Pipeline
+
 def DroppingStage():
     return Pipeline([
         ("drop_bad", DropIrrelevant("Timestamp")),

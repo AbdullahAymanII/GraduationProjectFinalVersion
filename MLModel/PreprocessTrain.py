@@ -1,3 +1,5 @@
+from Stages import *
+
 class PreprocessTrain():
 
     def init(self):

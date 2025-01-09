@@ -63,9 +63,7 @@ from flask_cors import CORS
 import pandas as pd
 import joblib
 import xgboost as xgb
-import transformers
-import Stages
-import PreprocessTrain
+from PreprocessTrain import PreprocessTrain
 
 app = Flask(__name__)
 CORS(app)
