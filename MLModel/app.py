@@ -90,6 +90,9 @@ def predict():
         data = pd.read_csv(file)
         binary, multi= pipeline.fit_test(data)
 
+    print("Binary Features:\n", binary)
+    print("Multi Features:\n", multi)
+
         # Binary prediction stage
         binary_dmatrix = xgb.DMatrix(binary)
         binary_predictions = CIC_Binary.predict(binary_dmatrix)
