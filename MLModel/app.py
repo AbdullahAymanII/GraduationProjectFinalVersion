@@ -63,6 +63,7 @@ from flask_cors import CORS
 import pandas as pd
 import joblib
 import xgboost as xgb
+import pickle
 from PreprocessTrain import PreprocessTrain
 
 app = Flask(__name__)
@@ -71,7 +72,11 @@ CORS(app)
 # Load models
 CIC_Binary = joblib.load("models/binary.pkl")
 CIC_Multi = joblib.load("models/multi.pkl")
-pipeline = joblib.load("models/pipeline.pkl")
+# pipeline = joblib.load("models/pipeline.pkl")
+
+with open('pipeline.pkl', 'rb') as file:
+    pipeline = pickle.load(file)
+
 print("================================================================")
 print(type(pipeline))
 print(dir(pipeline))
