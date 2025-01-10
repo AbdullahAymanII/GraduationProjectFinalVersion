@@ -8,13 +8,12 @@ from sklearn.model_selection import train_test_split
 from imblearn.under_sampling import RandomUnderSampler
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.base import BaseEstimator, TransformerMixin
-from Stages import *
 
 class DropIrrelevant(BaseEstimator, TransformerMixin):
     def __init__(self, labels=None, negLabels="Flow Duration"):
         self.labels = labels
         self.negLabels = negLabels
-        
+
     def fit(self, X, y=None):
         return self
 
@@ -26,12 +25,12 @@ class DropIrrelevant(BaseEstimator, TransformerMixin):
         if self.labels is not None:
             X = X.drop(self.labels, axis=1).dropna(axis=0)
         X[self.negLabels] = X[self.negLabels].apply(lambda x: abs(x) if x != -np.inf else x)
-        
+
         print("Irrelevant Columns/Samples Dropped")
         print("Drop Irrelevant Finished Sucessfully")
         print("==============================================")
         return X
-        
+
 class ReplaceInfinites(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
@@ -47,46 +46,46 @@ class ReplaceInfinites(BaseEstimator, TransformerMixin):
 
     def replace_infinite_values(self, column):
         if np.isinf(column).any():
-            column = pd.Series(column)  
-            
+            column = pd.Series(column)
+
             finite_values = column[np.isfinite(column)]
-            
-            if len(finite_values) > 0:  
+
+            if len(finite_values) > 0:
                 max_finite = finite_values.max()
                 min_finite = finite_values.min()
-    
-                large_multiplier = 10 
-                small_multiplier = 10 
-    
+
+                large_multiplier = 10
+                small_multiplier = 10
+
                 column = column.replace(np.inf, max_finite * large_multiplier)
                 column = column.replace(-np.inf, min_finite * small_multiplier if min_finite < 0 else min_finite / small_multiplier)
             else:
                 column = column.replace([np.inf, -np.inf], 0)
         return column
 
-class RemoveDuplicates(BaseEstimator, TransformerMixin):   
+class RemoveDuplicates(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
-    
+
     def transform(self, X, y=None):
         print("Removing Duplicates stage is running.....")
 
         memory_before = X.memory_usage(deep=True).sum()
         print(f"Memory usage before removing duplicates: {memory_before / (1024 ** 3):.3f} GB")
-        
+
         duplicates_count = X.duplicated().sum()
         duplicates_percentage = (duplicates_count / len(X)) * 100
         print(f"Percentage of duplicates before removal: {duplicates_percentage:.3f}%")
-        
+
         k = X.drop_duplicates(keep='last')
         k.reset_index(inplace=True, drop=True)
-        
+
         memory_after = k.memory_usage(deep=True).sum()
         print(f"Memory usage after removing duplicates: {memory_after / (1024 ** 3):.3f} GB")
-        
+
         memory_diff = memory_before - memory_after
         print(f"Memory difference after removing duplicates: {memory_diff / (1024 ** 3):.3f} GB")
-        
+
         print("Duplicates Dropped")
         print("====================================================")
         return k
@@ -96,74 +95,74 @@ class Normalizer(BaseEstimator, TransformerMixin):
     def __init__(self, label, train=True):
         self.scaler = StandardScaler()
         self.label = label
-        self.numeric_cols = None  
+        self.numeric_cols = None
         self.train = train
-        
+
     def fit(self, X, y=None):
         self.numeric_cols = X.drop(self.label, axis=1).columns
         print(self.numeric_cols)
         self.scaler.fit(X.drop(self.label, axis=1))
         return self
-    
+
     def transform(self, X, y=None):
         print("Normalizing stage is running......")
-        
+
         if self.train:
             X_numeric_scaled = pd.DataFrame(
                 self.scaler.transform(X.drop(self.label, axis=1)),
                 columns=self.numeric_cols,
                 index=X.index
             )
-            
+
             X_non_numeric = X[[self.label]]
-            
+
             X_scaled = pd.concat([X_numeric_scaled, X_non_numeric], axis=1)
-        
+
         else:
             X_scaled = pd.DataFrame(
                 self.scaler.transform(X),
                 columns=self.numeric_cols,
                 index=X.index
             )
-            
+
         print("Normalization Done Successfully")
-        print("==============================================") 
+        print("==============================================")
         return X_scaled
-        
+
     def set_train_mode(self, train=True):
         self.train = train
 
 class CreateLabelColumns(BaseEstimator, TransformerMixin):
     def __init__(self, label="Label"):
         self.label = label
-        
+
     def fit(self, X, y=None):
         return self
-    
+
     def transform(self, X, y=None):
         print("Creating Binary/Multi Label Columns")
-        attack_classes = self.getAttackClasses(X)        
-        X = X.copy()  
+        attack_classes = self.getAttackClasses(X)
+        X = X.copy()
         X['BinaryLabel'] = X[self.label].isin(attack_classes).replace({True: 'Attack', False: 'Benign'})
         X["MultiLabel"] = X[self.label]
         print("Creating Labels Done Successfully")
         print("===================================================")
         return X.drop(self.label, axis=1)
-    
+
     def getAttackClasses(self, X):
         return [label for label in X[self.label].unique() if label != "Benign"]
 
 class SplitLabeledDatasets(BaseEstimator, TransformerMixin):
     def __init__(self, dos_label=None):
         self.dos_label = dos_label
-        
+
     def fit(self, X, y=None):
         return self
-    
+
     def transform(self, X, y=None):
         print("Splitting the data into Binary/Multi Labels")
         if self.dos_label:
-            dataset1 = X.drop(["MultiLabel", "Type"], axis=1)        
+            dataset1 = X.drop(["MultiLabel", "Type"], axis=1)
             dataset2 = X.drop(["BinaryLabel", "Type"], axis=1)
             dataset2 = dataset2[dataset2["MultiLabel"] != "Benign"]
             dataset3 = X.drop(["MultiLabel", "BinaryLabel"], axis=1)
@@ -173,18 +172,18 @@ class SplitLabeledDatasets(BaseEstimator, TransformerMixin):
             return dataset1, dataset2, dataset3
 
         else:
-            dataset1 = X.drop(["MultiLabel"], axis=1)        
+            dataset1 = X.drop(["MultiLabel"], axis=1)
             dataset2 = X.drop(["BinaryLabel"], axis=1)
             dataset2 = dataset2[dataset2["MultiLabel"] != "Benign"]
             print("Splitting Done Successfully")
             print("=========================================")
             return dataset1, dataset2
-            
+
 
 class SplitTrainTest(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
-    
+
     def transform(self, X, y=None):
         print("Splitting Data into train/test is running")
         train, test = train_test_split(X, shuffle=True, test_size=0.01, random_state=42)
@@ -201,27 +200,27 @@ class CustomFeatureSelect(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None):
         print("Feature Selection Stage is running.....")
-        
+
         if self.label_column not in X.columns:
             raise ValueError(f"The label column '{self.label_column}' must be in the dataset.")
 
         label_column = self.label_column
-        class_labels = X[label_column].unique()  
+        class_labels = X[label_column].unique()
         ks_results = {}
 
-        if len(class_labels) == 2: 
+        if len(class_labels) == 2:
             print("Performing KS test for binary classification...")
             class_0 = class_labels[0]
             class_1 = class_labels[1]
-            
+
             for feature in X.columns.tolist():
                 if feature != label_column:
                     values_0 = X[X[label_column] == class_0][feature]
                     values_1 = X[X[label_column] == class_1][feature]
                     ks_stat, p_value = ks_2samp(values_0, values_1)
                     ks_results[feature] = {'KS Statistic': ks_stat, 'P-value': p_value}
-        
-        else:  
+
+        else:
             print("Performing pairwise KS tests for multi-class classification...")
             for feature in X.columns.tolist():
                 if feature != label_column:
@@ -240,7 +239,7 @@ class CustomFeatureSelect(BaseEstimator, TransformerMixin):
 
         print(ks_df)
 
-        if len(class_labels) == 2: 
+        if len(class_labels) == 2:
             significant_features = ks_df[ks_df['P-value'] < 0.05]
             features = significant_features[significant_features["KS Statistic"] > self.ks_threshold].index.tolist()
         else:
@@ -259,7 +258,7 @@ class CustomFeatureSelect(BaseEstimator, TransformerMixin):
         else:
             features_without_label = [feat for feat in self.selected_features_ if feat in X.columns]
             return X[features_without_label]
-            
+
     def set_train_mode(self, train=True):
         self.train = train
 
@@ -275,25 +274,25 @@ class CustomRandomUnderSampler(BaseEstimator, TransformerMixin):
         self.sampler_ = RandomUnderSampler(
             sampling_strategy=self.sampling_strategy,
             random_state=self.random_state
-        )  
-        self.feature_names_in_ = None  
+        )
+        self.feature_names_in_ = None
 
     def fit(self, X, y):
         if hasattr(X, 'columns'):
             self.feature_names_in_ = X.columns.tolist()
         return self
 
-    
+
     def transform(self, X, y):
         X_resampled, y_resampled = self.sampler_.fit_resample(X, y)
-                 
+
         if hasattr(X, 'columns') and self.feature_names_in_ is not None:
             if not isinstance(X_resampled, pd.DataFrame):
                 X_resampled = pd.DataFrame(X_resampled, columns=self.feature_names_in_)
-                
+
         y_resampled = pd.Series(y_resampled, name=y.name)
 
-        return pd.concat([X_resampled, y_resampled], axis=1) 
+        return pd.concat([X_resampled, y_resampled], axis=1)
 
     def fit_transform(self, X, y):
         self.fit(X, y)
@@ -315,11 +314,11 @@ class CustomLabelEncoder(BaseEstimator, TransformerMixin):
 
     def transform(self, X, y=None):
         print("Label Encoding Stage is running...")
-        
+
         X_transformed = X.copy()
         for col, le in self.label_encoders.items():
             X_transformed[col] = le.transform(X[col])
-        
+
         print("Label Encoding Stage Done Successfully")
         print("=========================================")
         return X_transformed
@@ -368,7 +367,7 @@ class GroupLabels(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         print("Group Labels Stage is running...")
         return self
-        
+
     def transform(self, X, y=None):
         def group_labels(label):
             if "UDP" in label:
@@ -401,7 +400,7 @@ class GroupLabels(BaseEstimator, TransformerMixin):
                 return "Benign"
             else:
                 return "None"
-                
+
         if isinstance(X, pd.DataFrame):
             X[self.dos_label] = X[self.label].apply(group_dos)
             X[self.label] = X[self.label].apply(group_labels)
@@ -409,6 +408,6 @@ class GroupLabels(BaseEstimator, TransformerMixin):
             print("=========================================")
             print(X["Type"].value_counts())
             return X
-            
+
         else:
             raise ValueError("Input should be a pandas DataFrame with a 'Labels' column.")
