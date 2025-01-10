@@ -99,7 +99,7 @@ const DashboardPage = () => {
         if (!predictionResult) return <Typography>No predictions yet!</Typography>;
 
         if (predictionResult.message) {
-            console.log(result);
+            console.log(predictionResult.message);
             return (
                 <Box sx={{textAlign: 'center', padding: 2, backgroundColor: '#d4edda', borderRadius: 2}}>
                     <Typography variant="h6" color="green">{predictionResult.message}</Typography>
