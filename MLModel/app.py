@@ -74,7 +74,7 @@ CIC_Binary = joblib.load("models/binary.pkl")
 CIC_Multi = joblib.load("models/multi.pkl")
 # pipeline = joblib.load("models/pipeline.pkl")
 
-with open('pipeline.pkl', 'rb') as file:
+with open('models/pipeline.pkl', 'rb') as file:
     pipeline = pickle.load(file)
 
 print("================================================================")
