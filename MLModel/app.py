@@ -166,6 +166,34 @@ def predict():
         print(binary.shape)
         print(multi.shape)
 
+    # Perform binary classification
+    binary_predictions = CIC_Binary.predict(binary)
+
+    # If all binary predictions are 1, return "No Attacks Occurred"
+    if all(binary_predictions):
+        return jsonify({"message": "No Attacks Occurred"})
+
+    # Identify indices where binary predictions indicate an attack (value = 0)
+    attack_indices = [i for i, pred in enumerate(binary_predictions) if pred == 0]
+
+    # Extract the data corresponding to the identified attack indices
+    attack_data = multi.iloc[attack_indices]
+
+    # Perform multi-class classification on the extracted data
+    multi_predictions = CIC_Multi.predict(attack_data)
+
+    # Fetch label mappings for binary and multi-class predictions
+    binaryLabels = pipeline.getBinaryLabelMapping()
+    multiLabels = pipeline.getMultiLabelMapping()
+
+# Return predictions in JSON format
+    return jsonify({
+     "binary_predictions": binary_predictions.tolist(),
+     "multi_predictions": multi_predictions.tolist()
+    })
+
+
+
         binary_predictions = CIC_Binary.predict(binary)
 
         if any(binary_predictions):
