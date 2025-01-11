@@ -112,9 +112,6 @@ from flask_cors import CORS
 import pandas as pd
 import joblib
 import pickle
-import openai
-from dotenv import load_dotenv
-import os
 import xgboost as xgb
 from PreprocessTrain import PreprocessTrain
 from Stages import *
@@ -126,26 +123,6 @@ CIC_Binary = joblib.load("models/binary.pkl")
 CIC_Multi = joblib.load("models/multi.pkl")
 with open('models/pipeline.pkl', 'rb') as file:
     pipeline = pickle.load(file)
-
-
-load_dotenv()
-CHATGPT_API_KEY = os.getenv("CHATGPT_API_KEY")
-# OpenAI API setup
-openai.api_key = CHATGPT_API_KEY  # Replace with your OpenAI API key
-
-def fetch_attack_info(attack):
-    prompt = f"""
-    Provide a brief description of the attack '{attack}', including:
-    - A brief overview of the attack.
-    - Its risk level (low, medium, high).
-    - Recommended actions to mitigate it.
-    """
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=150
-    )
-    return response.choices[0].text.strip()
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -179,23 +156,15 @@ def predict():
 
         multi_predictions = CIC_Multi.predict(attack_data)
         multiLabels = pipeline.getMultiLabelMapping()
-
-        # Map predictions to attack labels and fetch attack info from ChatGPT
-        attack_results = []
-        for pred in multi_predictions:
-            attack_name = multiLabels['MultiLabel'].get(str(pred), "Unknown Attack")
-            attack_info = fetch_attack_info(attack_name)
-            attack_results.append({
-                "attack_name": attack_name,
-                "attack_info": attack_info
-            })
+        binaryLabels = pipeline.getBinaryLabelMapping()
 
         return jsonify({
             "multi_predictions": multi_predictions.tolist(),
             "binary_predictions": binary_predictions.tolist(),
+            "binaryLabels":binaryLabels,
             "multiLabels":multiLabels,
-            "attack_results": attack_results
         })
+
     except KeyError as e:
         missing_columns = list(set(e.args[0].split(" ")[-1]) - set(data.columns))
         return jsonify({"error": f"Missing required columns: {missing_columns}"}), 400

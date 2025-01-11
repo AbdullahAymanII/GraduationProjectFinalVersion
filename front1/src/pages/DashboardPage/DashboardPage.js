@@ -341,6 +341,7 @@ const DashboardPage = () => {
     const [file, setFile] = useState(null);
     const [predictionResult, setPredictionResult] = useState(null);
     const [attacksLabel, setAttacksLabel] = useState(null);
+    const [binaryPredictionLabel, setBinaryPredictionLabel] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const [user, setUser] = useState({name: '', profileImage: ''});
@@ -373,34 +374,53 @@ const DashboardPage = () => {
     };
 
     const mapPredictionsToLabels = (result) => {
-        const { multiLabels, multi_predictions, attack_results } = result;
+        const { multiLabels, multi_predictions, binary_predictions, binaryLabels} = result;
+
+        console.log("-----------------------------------------------------");
+        console.log("binaryLabels:", binaryLabels);
+        console.log("-----------------------------------------------------");
 
         // Correctly access the MultiLabel object
-        const labelMapping = Object.entries(multiLabels.MultiLabel).reduce((acc, [key, value]) => {
+        const multiLabelMapping = Object.entries(multiLabels.MultiLabel).reduce((acc, [key, value]) => {
             acc[value] = key; // Reverse key-value for direct mapping
             return acc;
         }, {});
 
-        setAttacksLabel(labelMapping);
+        const binaryLabelMapping = Object.entries(binaryLabels.BinaryLabel).reduce((acc, [key, value]) => {
+            acc[value] = key; // Reverse key-value for direct mapping
+            return acc;
+        }, {});
+
+        setAttacksLabel(multiLabelMapping);
 
         console.log("-----------------------------------------------------");
-        console.log("Reversed Label Mapping:", labelMapping);
+        console.log("Reversed Label Mapping:", multiLabelMapping);
         console.log("-----------------------------------------------------");
-        console.log("Reversed attack_results:", attack_results);
+        console.log("Reversed attack_results:", binaryLabelMapping);
         console.log("-----------------------------------------------------");
         // Map predictions to their labels
-        const mappedLabels = multi_predictions.map(prediction => {
-            const label = labelMapping[prediction];
+        const binaryMappedLabels = binary_predictions.map(prediction => {
+            const label = binaryLabelMapping[prediction];
             if (label === undefined) {
                 // console.warn(`Prediction value ${prediction} not found in labelMapping`);
                 return "Infilteration"; // Default fallback
             }
             return label;
         });
+
+        const multiMappedLabels = multi_predictions.map(prediction => {
+            const label = multiLabelMapping[prediction];
+            if (label === undefined) {
+                // console.warn(`Prediction value ${prediction} not found in labelMapping`);
+                return "Infilteration"; // Default fallback
+            }
+            return label;
+        });
+        setBinaryPredictionLabel(binaryMappedLabels);
+
         console.log("-----------------------------------------------------");
-        console.log("Mapped Labels:", mappedLabels);
         console.log("-----------------------------------------------------");
-        return mappedLabels;
+        return multiMappedLabels;
     };
 
     const handlePrediction = async () => {
@@ -444,24 +464,59 @@ const DashboardPage = () => {
         }
         return colors;
     };
+
     const renderPredictionResults = () => {
-        if (!predictionResult) {
+        if (!predictionResult || !binaryPredictionLabel) {
             return <Typography>No predictions yet!</Typography>;
         }
 
+        // Benign vs. Attack Distribution
+        const benignAttackCounts = {
+            Benign: binaryPredictionLabel.filter((label) => label === "Benign").length,
+            Attack: binaryPredictionLabel.filter((label) => label === "Attack").length,
+        };
+
+        const benignAttackLabels = Object.keys(benignAttackCounts);
+        const benignAttackData = Object.values(benignAttackCounts);
+
+        const benignAttackColors = ["#4CAF50", "#F44336"]; // Green for Benign, Red for Attack
+
+        // Attack Details Distribution
         const attackCounts = {};
         predictionResult.forEach((attack) => {
             attackCounts[attack] = (attackCounts[attack] || 0) + 1;
         });
 
-
         const attackLabels = Object.keys(attackCounts);
         const attackData = Object.values(attackCounts);
 
-        const colorPalette = generateColors(attackLabels.length);
+        const attackColors = generateColors(attackLabels.length);
 
         return (
             <Box>
+                {/* Benign vs. Attack Distribution Pie Chart */}
+                <Box sx={{ marginBottom: 4 }}>
+                    <Typography variant="h6" align="center">Benign vs. Attack Distribution</Typography>
+                    <Pie
+                        data={{
+                            labels: benignAttackLabels,
+                            datasets: [
+                                {
+                                    data: benignAttackData,
+                                    backgroundColor: benignAttackColors,
+                                },
+                            ],
+                        }}
+                        options={{
+                            responsive: true,
+                            plugins: {
+                                legend: { display: true },
+                                title: { display: true, text: "Benign vs. Attack Proportion" },
+                            },
+                        }}
+                    />
+                </Box>
+
                 {/* Attack Distribution Bar Chart */}
                 <Box sx={{ marginBottom: 4 }}>
                     <Typography variant="h6" align="center">Attack Distribution</Typography>
@@ -472,7 +527,7 @@ const DashboardPage = () => {
                                 {
                                     label: "Number of Occurrences",
                                     data: attackData,
-                                    backgroundColor: colorPalette.slice(0, attackLabels.length),
+                                    backgroundColor: attackColors.slice(0, attackLabels.length),
                                 },
                             ],
                         }}
@@ -496,7 +551,7 @@ const DashboardPage = () => {
                                 {
                                     label: "Attack Frequency",
                                     data: attackData,
-                                    backgroundColor: colorPalette,
+                                    backgroundColor: attackColors,
                                 },
                             ],
                         }}
@@ -520,7 +575,7 @@ const DashboardPage = () => {
                             datasets: [
                                 {
                                     data: attackData,
-                                    backgroundColor: colorPalette.slice(0, attackLabels.length),
+                                    backgroundColor: attackColors.slice(0, attackLabels.length),
                                 },
                             ],
                         }}
@@ -536,6 +591,7 @@ const DashboardPage = () => {
             </Box>
         );
     };
+
 
     return (
         <Box sx={{display: 'flex', minHeight: '100vh', backgroundColor: '#f3f4f6'}}>
