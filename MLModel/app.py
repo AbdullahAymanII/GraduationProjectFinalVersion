@@ -189,7 +189,9 @@ def predict():
 # Return predictions in JSON format
         return jsonify({
         "binary_predictions": binary_predictions.tolist(),
-        "multi_predictions": multi_predictions.tolist()
+        "multi_predictions": multi_predictions.tolist(),
+        "binaryLabels":binaryLabels,
+        "multiLabels":multiLabels
         })
 
 
