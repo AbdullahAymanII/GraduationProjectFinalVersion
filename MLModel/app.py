@@ -183,16 +183,24 @@ def predict():
         multi_predictions = CIC_Multi.predict(attack_data)
 
     # Fetch label mappings for binary and multi-class predictions
-        binaryLabels = pipeline.getBinaryLabelMapping()
+    #     binaryLabels = pipeline.getBinaryLabelMapping()
+
         multiLabels = pipeline.getMultiLabelMapping()
+        mapped_predictions = [multiLabels[pred] for pred in multi_predictions]
+
+        return jsonify({
+            "multi_predictions": mapped_predictions
+        })
+
+
 
 # Return predictions in JSON format
-        return jsonify({
-        "binary_predictions": binary_predictions.tolist(),
-        "multi_predictions": multi_predictions.tolist(),
-        "binaryLabels":binaryLabels,
-        "multiLabels":multiLabels
-        })
+#         return jsonify({
+#         "binary_predictions": binary_predictions.tolist(),
+#         "multi_predictions": mapped_multi_predictions,
+#         "binaryLabels":binaryLabels,
+#         "multiLabels":multiLabels
+#         })
 
 
 
