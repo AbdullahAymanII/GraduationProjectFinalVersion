@@ -8,3 +8,5 @@ scikit-learn==1.3.2
 imbalanced-learn
 catboost
 scipy
+openai
+python-dotenv
