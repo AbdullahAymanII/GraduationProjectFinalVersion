@@ -398,100 +398,31 @@ const DashboardPage = () => {
                                 </CardContent>
                             </Card>
                         </Grid>
-                        {/*{predictionResult && (*/}
-                        {/*    <Grid item xs={12} md={6}>*/}
-                        {/*        <Card>*/}
-                        {/*            <CardContent>*/}
-                        {/*                <Typography variant="h6" gutterBottom>Download Predictions</Typography>*/}
-                        {/*                <Button*/}
-                        {/*                    variant="contained"*/}
-                        {/*                    fullWidth*/}
-                        {/*                    onClick={() => {*/}
-                        {/*                        // Convert predictionResult to CSV format*/}
-                        {/*                        const csvRows = [];*/}
-                        {/*                        const headers = ["Index", "Prediction"];*/}
-                        {/*                        csvRows.push(headers.join(",")); // Add headers*/}
-
-                        {/*                        predictionResult.forEach((prediction, index) => {*/}
-                        {/*                            csvRows.push(`${index},${prediction}`); // Add data rows*/}
-                        {/*                        });*/}
-
-                        {/*                        const csvContent = csvRows.join("\n");*/}
-                        {/*                        const blob = new Blob([csvContent], { type: "text/csv" });*/}
-                        {/*                        const url = URL.createObjectURL(blob);*/}
-                        {/*                        const link = document.createElement("a");*/}
-                        {/*                        link.href = url;*/}
-                        {/*                        link.download = "prediction_results.csv";*/}
-                        {/*                        document.body.appendChild(link);*/}
-                        {/*                        link.click();*/}
-                        {/*                        document.body.removeChild(link);*/}
-                        {/*                    }}*/}
-                        {/*                >*/}
-                        {/*                    Download Results*/}
-                        {/*                </Button>*/}
-                        {/*            </CardContent>*/}
-                        {/*        </Card>*/}
-                        {/*    </Grid>*/}
-                        {/*)}*/}
 
                         {predictionResult && (
                             <Grid item xs={12} md={6}>
                                 <Card>
                                     <CardContent>
                                         <Typography variant="h6" gutterBottom>
-                                            Download Predictions
+                                            Download Labeled Dataset
                                         </Typography>
-                                        <Button
-                                            variant="contained"
-                                            fullWidth
-                                            onClick={() => {
-                                                // Convert predictionResult to CSV format
-                                                const csvRows = [];
-                                                const headers = ["Index", "Prediction"];
-                                                csvRows.push(headers.join(",")); // Add headers
-
-                                                predictionResult.forEach((prediction, index) => {
-                                                    csvRows.push(`${index},${prediction}`); // Add data rows
-                                                });
-
-                                                const csvContent = csvRows.join("\n");
-                                                const blob = new Blob([csvContent], {type: "text/csv"});
-                                                const url = URL.createObjectURL(blob);
-                                                const link = document.createElement("a");
-                                                link.href = url;
-                                                link.download = "prediction_results.csv";
-                                                document.body.appendChild(link);
-                                                link.click();
-                                                document.body.removeChild(link);
-                                            }}
-                                        >
-                                            Download Results
-                                        </Button>
-
-                                        {/* New Block */}
-                                        <div style={{marginTop: "16px"}}>
-                                            <Typography variant="h6" gutterBottom>
-                                                Additional Actions
-                                            </Typography>
-                                            {downloadLink && (
-                                                <Button
-                                                    variant="contained"
-                                                    fullWidth
-                                                    style={{marginTop: "8px"}}
-                                                    onClick={() => {
-                                                        const link = document.createElement("a");
-                                                        link.href = downloadLink;
-                                                        link.download = "labeled_dataset.csv";
-                                                        document.body.appendChild(link);
-                                                        link.click();
-                                                        document.body.removeChild(link);
-                                                    }}
-                                                >
-                                                    Download Labeled Dataset
-                                                </Button>
-                                            )}
-                                        </div>
-
+                                        {downloadLink && (
+                                            <Button
+                                                variant="contained"
+                                                fullWidth
+                                                style={{marginTop: "8px"}}
+                                                onClick={() => {
+                                                    const link = document.createElement("a");
+                                                    link.href = downloadLink;
+                                                    link.download = "labeled_dataset.csv";
+                                                    document.body.appendChild(link);
+                                                    link.click();
+                                                    document.body.removeChild(link);
+                                                }}
+                                            >
+                                                Download
+                                            </Button>
+                                        )}
                                     </CardContent>
                                 </Card>
                             </Grid>
